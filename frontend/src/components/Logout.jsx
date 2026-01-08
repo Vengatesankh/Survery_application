@@ -7,7 +7,7 @@ const Logout = () => {
 
     if (res.ok) {
       alert("Logged out successfully");
-      window.location.reload(); // simple refresh
+      window.location.reload();
     } else {
       alert("Logout failed");
     }

@@ -11,8 +11,8 @@ const app = express();
 
 app.use(
   cors({
-    origin: true, // 👈 allow ANY frontend
-    credentials: true, // 👈 allow cookies
+    origin: true,
+    credentials: true,
   })
 );
 app.use(express.json());

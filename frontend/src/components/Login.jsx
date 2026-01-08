@@ -19,7 +19,7 @@ const Login = ({ onLogin }) => {
         alert("Login successful");
         setLogin({ email: "", password: "" });
 
-        onLogin(); // ✅ VERY IMPORTANT
+        onLogin();
       } else {
         alert("User Not Found.Register Now");
       }

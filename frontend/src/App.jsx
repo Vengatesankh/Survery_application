@@ -26,7 +26,6 @@ function App() {
         Survey Feedback Application
       </h1>
 
-      {/* If NOT logged in */}
       {!isLoggedIn && (
         <>
           <div className="flex justify-center gap-4 mb-4">
@@ -52,7 +51,6 @@ function App() {
         </>
       )}
 
-      {/* If logged in */}
       {isLoggedIn && (
         <>
           <Logout onLogout={() => setIsLoggedIn(false)} />
