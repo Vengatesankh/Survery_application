@@ -1,23 +1,27 @@
 import express from "express";
 import cors from "cors";
-import connectDB from "./config/db.js";
-import surveyRoutes from "./routes/surveyRoutes.js";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
+import connectDB from "./config/db.js";
+import authRoutes from "./routes/authRoutes.js";
+import surveyRoutes from "./routes/surveyRoutes.js";
 
 dotenv.config();
 const app = express();
 
-
-app.use(cors());
+app.use(
+  cors({
+    origin: true, // 👈 allow ANY frontend
+    credentials: true, // 👈 allow cookies
+  })
+);
 app.use(express.json());
+app.use(cookieParser());
 
 connectDB();
 
-app.use(surveyRoutes);
-
-
-
-
+app.use("/api", authRoutes);
+app.use("/api", surveyRoutes);
 
 app.listen(5000, () => {
   console.log("Server running on port 5000");

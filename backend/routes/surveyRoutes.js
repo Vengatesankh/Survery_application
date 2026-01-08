@@ -1,9 +1,10 @@
-import { createSurvey, getSurvey } from "../controllers/surveryController.js";
 import express from "express";
+import { createSurvey, getSurvey } from "../controllers/surveryController.js";
+import auth from "../middleware/auth.js";
 
-const surveyRoutes = express.Router();
+const router = express.Router();
 
-surveyRoutes.post("/api/survey", createSurvey);
-surveyRoutes.get("/api/survey", getSurvey);
+router.post("/survey", auth, createSurvey);
+router.get("/survey", getSurvey);
 
-export default surveyRoutes;
+export default router;
